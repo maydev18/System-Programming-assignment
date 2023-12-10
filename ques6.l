@@ -2,7 +2,8 @@
     #include "ques6.tab.h"
 %}
 %%
-[+-] {return OP;}
+[+] {return ADD;}
+[-] {return MINUS;}
 = {return ASSIGN;}
 "(" {return OPEN;}
 ")" {return CLOSE;}

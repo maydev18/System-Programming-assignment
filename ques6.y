@@ -3,7 +3,7 @@
     extern void yyerror(const char *);
     extern int yylex(void);
 %}
-%token VAR NUM OP ASSIGN OPEN CLOSE NL
+%token VAR NUM ADD MINUS ASSIGN OPEN CLOSE NL
 
 %%
 line : line expr NL {printf("valid\n");}
@@ -11,7 +11,9 @@ line : line expr NL {printf("valid\n");}
     ;
 expr : VAR ASSIGN expr
     | OPEN expr CLOSE
-    | expr OP expr
+    | expr ADD expr
+    | expr MINUS expr   
+    | MINUS expr
     | NUM
     | VAR
     ;
